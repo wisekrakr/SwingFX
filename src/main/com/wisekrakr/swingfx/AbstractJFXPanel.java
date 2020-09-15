@@ -49,16 +49,20 @@ public class AbstractJFXPanel extends JFXPanel implements AbstractGUIContext {
      */
     @Override
     public AbstractJFXPanel initialize(String fxmlPath) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        loader.setController(this);
-        try {
-            loader.load();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        if (!fxmlPath.isEmpty()){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            loader.setController(this);
+            try {
+                loader.load();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            root = loader.getRoot();
+            Platform.runLater(this::createScene);
+            return this;
+        }else{
+            throw new IllegalArgumentException("Could not find the fxml path in resources");
         }
-        root = loader.getRoot();
-        Platform.runLater(this::createScene);
-        return this;
     }
 
 }
