@@ -16,7 +16,7 @@
 
 A tiny library for those who want to create Swing JFrames, but with the aesthetics of a JavaFX Pane.
 With the help of a fxml file (or you can build out your pane in Screenbuilder), you can create and control
-you app easily.
+your app easily.
 
 #### LICENSE
 
