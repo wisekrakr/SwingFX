@@ -2,12 +2,10 @@ package com.wisekrakr.swingfx;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
@@ -33,12 +31,8 @@ public class AbstractJFXPanel extends JFXPanel implements AbstractGUIContext {
     @Override
     public void addDraggability(AbstractGUI parentGUI, Node node) {
 
-        node.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                parentGUI.setBounds((int)(event.getScreenX()), (int)(event.getScreenY()), parentGUI.getWidth(), parentGUI.getHeight());
-            }
-        });
+        node.setOnMouseDragged(event -> parentGUI.setBounds(
+                (int)(event.getScreenX()), (int)(event.getScreenY()), parentGUI.getWidth(), parentGUI.getHeight()));
     }
 
     /**

@@ -8,9 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import java.security.SecureRandom;
-import java.util.stream.Collectors;
-
 public class ExampleJFrameWithJFXPanelController extends AbstractJFXPanel implements ControllerContext {
     private final AbstractGUI gui;
     private String welcomeString;
